@@ -1,51 +1,36 @@
 import java.util.Scanner;
 
 public class Ponto {
-	static int coordenadaX = 0;
-	static int coordenadaY = 0;
-	static int construtor = 0;
-	
-	public static int getCoordenadaX() {
-		return coordenadaX;
+	static Coordenadas coord = new Coordenadas();
+
+	public static void main(String[] args) {
+		do {
+			// Criei um método para o menu, o que economizou várias linhas.
+			int op = Integer.parseInt(digita(menuInicial()));
+			if (op == 1)
+				coord.incrementaCoord();
+			if (op == 2)
+				coord.decrementaCoord();
+			if (op == 3)
+				coord.Coordenadas();
+			if (op == 4)
+				System.exit(0);
+		} while (true);
 	}
-	public static void setCoordenadaX(int coordenadaX) {
-		Ponto.coordenadaX = coordenadaX;
+
+	private static String digita(String menu) {
+		Scanner a = new Scanner(System.in);
+		System.out.println(menu);
+		return a.nextLine();
 	}
-	public static int getCoordenadaY() {
-		return coordenadaY;
-	}
-	public static void setCoordenadaY(int coordenadaY) {
-		Ponto.coordenadaY = coordenadaY;
-	}
-	
-	public void Construtor(){
-		int zeraValor = 0;
-		setCoordenadaX(zeraValor);
-		setCoordenadaY(zeraValor);
-		System.out.println("Os valores foram reiniciados!");
-	
-	}
-	public void incrementaCoord(){
-		System.out.print("Digite o valor que gostaria de incrementar na coordenada X: ");
-		int valX = new Scanner(System.in).nextInt();
-		System.out.print("Digite o valor que gostaria de incrementar na coordenada Y: ");
-		int valY = new Scanner(System.in).nextInt();
-		int novaCoordX = coordenadaX + valX;
-		int novaCoordY = coordenadaY + valY;
-		setCoordenadaX(novaCoordX);
-		setCoordenadaY(novaCoordY);
-		
-	}
-	
-	public void decrementaCoord(){
-		System.out.print("Digite o valor que gostaria de subtrair na coordenada X: ");
-		int valX = new Scanner(System.in).nextInt();
-		System.out.print("Digite o valor que gostaria de subtrair na coordenada Y: ");
-		int valY = new Scanner(System.in).nextInt();
-		int novaCoordX = coordenadaX - valX;
-		int novaCoordY = coordenadaY - valY;
-		setCoordenadaX(novaCoordX);
-		setCoordenadaY(novaCoordY);
-		
+
+	private static String menuInicial() {
+		String menu = "";
+		menu += "\nDigite a opção: ";
+		menu += "\n1 - Incrementar";
+		menu += "\n2 - Drecrementar";
+		menu += "\n3 - Zerar coordenadas";
+		menu += "\n4 - Sair";
+		return menu;
 	}
 }

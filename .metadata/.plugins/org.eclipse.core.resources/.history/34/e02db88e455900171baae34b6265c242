@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class Coordenadas {
+	static int coordenadaX = 0;
+	static int coordenadaY = 0;
+	
+	static void Coordenadas(){
+		coordenadaX = 0;
+		coordenadaY = 0;
+		mostraCoordenadas();
+	}
+
+	public static int getCoordenadaX() {
+		return coordenadaX;
+	}
+
+	public static void setCoordenadaX(int coordenadaX) {
+		Coordenadas.coordenadaX = coordenadaX;
+	}
+
+	public static int getCoordenadaY() {
+		return coordenadaY;
+	}
+
+	public static void setCoordenadaY(int coordenadaY) {
+		Coordenadas.coordenadaY = coordenadaY;
+	}
+	
+	public void incrementaCoord(){
+		System.out.print("Digite o valor que gostaria de incrementar na coordenada X: ");
+		int valX = new Scanner(System.in).nextInt();
+		System.out.print("Digite o valor que gostaria de incrementar na coordenada Y: ");
+		int valY = new Scanner(System.in).nextInt();
+		int novaCoordX = coordenadaX + valX;
+		int novaCoordY = coordenadaY + valY;
+		setCoordenadaX(novaCoordX);
+		setCoordenadaY(novaCoordY);
+		mostraCoordenadas();		
+	}
+	
+	public void decrementaCoord(){
+		System.out.print("Digite o valor que gostaria de subtrair na coordenada X: ");
+		int valX = new Scanner(System.in).nextInt();
+		System.out.print("Digite o valor que gostaria de subtrair na coordenada Y: ");
+		int valY = new Scanner(System.in).nextInt();
+		int novaCoordX = coordenadaX - valX;
+		int novaCoordY = coordenadaY - valY;
+		setCoordenadaX(novaCoordX);
+		setCoordenadaY(novaCoordY);
+		mostraCoordenadas();		
+	}
+	
+	public static void mostraCoordenadas(){
+		System.out.println("As coordenadas atuais são: \nCoordenada X: "+getCoordenadaX()+"\nCoordenada Y: "+getCoordenadaY());
+	}
+}

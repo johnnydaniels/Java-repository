@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Coordenadas {
+	static int coordenadaX = 0;
+	static int coordenadaY = 0;
+	
+	static void Coordenadas(){
+		coordenadaX = 0;
+		coordenadaY = 0;
+	}
+
+	public static int getCoordenadaX() {
+		return coordenadaX;
+	}
+
+	public static void setCoordenadaX(int coordenadaX) {
+		Coordenadas.coordenadaX = coordenadaX;
+	}
+
+	public static int getCoordenadaY() {
+		return coordenadaY;
+	}
+
+	public static void setCoordenadaY(int coordenadaY) {
+		Coordenadas.coordenadaY = coordenadaY;
+	}
+	
+}

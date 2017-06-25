@@ -1,26 +1,55 @@
 import java.util.Scanner;
 
 public class Coordenadas {
-	public static void main(String[] args) {
-		Ponto ponto = new Ponto();
-				
-		do{
-			System.out.println("As coordenadas atuais são: \nCoordenada X: "+ponto.coordenadaX+"\nCoordenada Y: "+ponto.coordenadaY);
-			System.out.println("\nDigite a opção: ");
-			System.out.println("1 - Incrementar");
-			System.out.println("2 - Drecrementar");
-			System.out.println("3 - Zerar coordenadas");
-			System.out.println("4 - Sair");
-			int op = new Scanner(System.in).nextInt();
-			
-			if (op == 1)
-				ponto.incrementaCoord();
-			if (op == 2)
-				ponto.decrementaCoord();
-			if (op == 3)
-				ponto.Construtor();
-			if (op == 4)
-				System.exit(0);
-		}while (true);		
+	static int coordenadaX = 0;
+	static int coordenadaY = 0;
+
+	static void Coordenadas() {
+		// Método construtor já stando os valores em zero e mostrando os valores atuais quando resetados.
+		coordenadaX = 0;
+		coordenadaY = 0;
+		mostraCoordenadas();
+	}
+
+	public static int getCoordenadaX() {
+		return coordenadaX;
+	}
+
+	public static void setCoordenadaX(int coordenadaX) {
+		Coordenadas.coordenadaX = coordenadaX;
+	}
+
+	public static int getCoordenadaY() {
+		return coordenadaY;
+	}
+
+	public static void setCoordenadaY(int coordenadaY) {
+		Coordenadas.coordenadaY = coordenadaY;
+	}
+
+	// Concatenei os métodos de incremento e decremento com o método digitaInt()
+	public void incrementaCoord() {
+		setCoordenadaX(digitaInt("Digite o valor que gostaria de incrementar na coordenada X: "));
+		setCoordenadaY(digitaInt("Digite o valor que gostaria de incrementar na coordenada Y: "));
+		mostraCoordenadas();
+	}
+
+	public void decrementaCoord() {
+		int a = digitaInt("Digite o valor que gostaria de subtrair na coordenada X: ");
+		setCoordenadaX(coordenadaX - a);
+		int b = digitaInt("Digite o valor que gostaria de subtrair na coordenada Y: ");
+		setCoordenadaY(coordenadaY - b);
+		mostraCoordenadas();
+	}
+
+	public static void mostraCoordenadas() {
+		System.out.println("As coordenadas atuais são: \nCoordenada X: " + getCoordenadaX() + "\nCoordenada Y: "
+				+ getCoordenadaY());
+	}
+
+	private static int digitaInt(String msg) {
+		Scanner a = new Scanner(System.in);
+		System.out.println(msg);
+		return a.nextInt();
 	}
 }
