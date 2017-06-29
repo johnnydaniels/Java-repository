@@ -1,0 +1,90 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class avaliacaoFinal {
+	static int tam = 6;
+	static int contv2 = 0;
+	static int v1[] = new int[tam];
+	static int v2[] = new int[tam];
+
+	public static void main(String[] args) {
+		inicializaArrays();
+		mostraArrays();
+		do {
+			leArray();
+		} while (true);
+	}
+
+	private static void inicializaArrays() {
+		java.util.Arrays.fill(v1, -1);
+		java.util.Arrays.fill(v2, -1);
+	}
+
+	private static void leArray() {
+		int num = digita("Digite um número: ");
+		if (num > 0) {
+			if (v1[v1.length - 1] != -1)
+				java.util.Arrays.fill(v1, -1);
+			if (v2[v2.length - 1] != -1)
+				java.util.Arrays.fill(v2, -1);
+			for (int k = 0; k < v1.length; k++) {
+				if (num != v1[k] && v1[k] == -1) {
+					v1[k] = num;
+					break;
+				}
+				if (num == v1[k]) {
+					int aux = num;
+					if (v2[v2.length - 1] == -1) {
+						v1[k] = -1;
+						v2[contv2] = aux;
+						contv2++;
+						break;
+					}
+				}
+			}
+		}
+		if (num == 0) {
+			System.exit(0);
+		}
+		if (num < 0) {
+			mostraSomaArrays();
+		}
+		mostraArrays();
+	}
+
+	public static void mostraArrays() {
+		System.out.print("v1: [ ");
+		for (int cont = 0; cont < v1.length; cont++)
+			System.out.print(v1[cont] + ", ");
+		System.out.print(" ]\n");
+
+		System.out.print("v2: [ ");
+		for (int cont = 0; cont < v2.length; cont++)
+			System.out.print(v2[cont] + ", ");
+		System.out.print(" ]\n");
+
+	}
+
+	private static void zeraV2() {
+		for (int cont = 0; cont < v2.length; cont++)
+			v2[cont] = -1;
+	}
+
+	private static void mostraSomaArrays() {
+		int soma = 0;
+		for (int k = 0; k < tam; k++) {
+			if (v1[k] != -1)
+				soma += v1[k];
+			if (v2[k] != -1)
+				soma += v2[k];
+		}
+		mostraArrays();
+		System.out.println("A soma dos valores é: " + soma);
+	}
+
+	private static int digita(String msg) {
+		Scanner a = new Scanner(System.in);
+		System.out.println(msg);
+		return a.nextInt();
+	}
+}

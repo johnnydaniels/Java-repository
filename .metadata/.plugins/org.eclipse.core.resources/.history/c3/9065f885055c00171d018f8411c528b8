@@ -1,0 +1,103 @@
+
+import java.util.Scanner;
+
+public class avaliacaoFinal {
+	static int tam = 6;
+	static int v1[] = new int[tam];
+	static int v2[] = new int[tam];
+	static int cont1 = 0;
+	static int cont2 = 0;
+
+	public static void main(String[] args) {
+		inicializaArrays();
+		mostraArrays();
+		do {
+			leArray();
+		} while (true);
+	}
+
+	private static void inicializaArrays() {
+		for (int cont = 0; cont < v1.length; cont++)
+			v1[cont] = -1;
+		for (int cont = 0; cont < v2.length; cont++)
+			v2[cont] = -1;
+	}
+
+	private static void leArray() {
+		int num = digita("Digite um número: ");
+		if (num > 0) {
+			preencheArray(num);
+		}
+		if (num == 0) {
+			System.exit(0);
+		}
+		if (num < 0) {
+			mostraSomaArrays();
+		}
+		mostraArrays();
+	}
+
+	private static void preencheArray(int a) {
+		// int l = 0;
+		if (v1[v1.length - 1] == -1) {
+			for (int k = 0; k < v1.length; k++) {
+				if (v1[k] == -1 && v1[k] != a) {
+					v1[k] = a;
+					break;
+				}
+				if (v1[k] == a) {
+					if (v1[v1.length - 1] == -1) {
+						for (int l = 0; l < v2.length; l++) {
+							if (v2[v2.length - 1] == -1) {
+								int aux = a;
+								v1[k] = -1;
+								v2[l] = aux;
+								l++;
+								break;
+							}
+							if (v2[v2.length - 1] != -1) {
+								zeraV2();
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	public static void mostraArrays() {
+		System.out.print("v1: [ ");
+		for (int cont = 0; cont < v1.length; cont++)
+			System.out.print(v1[cont] + ", ");
+		System.out.print(" ]\n");
+
+		System.out.print("v2: [ ");
+		for (int cont = 0; cont < v2.length; cont++)
+			System.out.print(v2[cont] + ", ");
+		System.out.print(" ]\n");
+
+	}
+
+	private static void zeraV2() {
+		for (int cont = 0; cont < v2.length; cont++)
+			v2[cont] = -1;
+	}
+
+	private static void mostraSomaArrays() {
+		int soma = 0;
+		for (int k = 0; k < tam; k++) {
+			if (v1[k] != -1)
+				soma += v1[k];
+			if (v2[k] != -1)
+				soma += v2[k];
+		}
+		mostraArrays();
+		System.out.println("A soma dos valores é: " + soma);
+	}
+
+	private static int digita(String msg) {
+		Scanner a = new Scanner(System.in);
+		System.out.println(msg);
+		return a.nextInt();
+	}
+}
