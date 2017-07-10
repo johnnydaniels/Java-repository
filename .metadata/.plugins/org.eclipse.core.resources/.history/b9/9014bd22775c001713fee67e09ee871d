@@ -1,0 +1,67 @@
+
+public class Produto {
+	private String caneta;
+	private int quantidade;
+	private int precoUnit;
+	private double totalPag;
+	private double desconto;
+	private double totalVenda;
+	
+	public Produto(){
+		
+	}
+	
+	public String getCaneta() {
+		return caneta;
+	}
+	public void setCaneta(String caneta) {
+		this.caneta = caneta;
+	}
+	public int getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	public int getPrecoUnit() {
+		return precoUnit;
+	}
+	public void setPrecoUnit(int precoUnit) {
+		this.precoUnit = precoUnit;
+	}
+	public double getTotalPag() {
+		return totalPag;
+	}
+	public void setTotalPag(double totalPag) {
+		this.totalPag = totalPag;
+	}
+	public double getDesconto() {
+		return desconto;
+	}
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
+	}
+	public double getTotalVenda() {
+		return totalVenda;
+	}
+	public void setTotalVenda(double totalVenda) {
+		this.totalVenda = totalVenda;
+	}
+	
+	public void calculaDesconto(){
+		try {
+			if (quantidade <= 5)
+				this.desconto = 2.0;
+			if (quantidade > 5 && quantidade < 10)
+				this.desconto = 3.0;
+			if (quantidade > 10)
+				this.desconto = 5.0;
+			this.desconto = 0;
+				} catch (Exception e) {
+					System.out.println("Erro. Digite um valor válido para a quantidade.");
+				}
+		double valDesc = totalPag =  desconto/100; 
+	}
+}                        
+	
+

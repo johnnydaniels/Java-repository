@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		do{
+			lePedido();
+		}while (true);
+
+	}
+
+	private static void lePedido() {
+		Produto produto = new Produto();
+	}
+	
+	private static int digita(String msg) {
+		System.out.print(msg);
+		return new Scanner(System.in).nextInt();
+	}
+
+}

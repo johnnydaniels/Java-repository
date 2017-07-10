@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		char op;
+		while (true) {
+			lePedido();
+			switch (digita("Deseja continuar? [S/N]").charAt(0)) {
+			case 's':
+				lePedido();
+				break;
+			case 'n':
+				System.exit(0);
+			}
+		}
+	}
+
+	private static void lePedido() {
+		Produto produto = new Produto();
+		produto.calculaPreco();
+		produto.mostraPedido();
+	}
+
+	private static String digita(String msg) {
+		System.out.print(msg);
+		return new Scanner(System.in).nextLine();
+	}
+
+}
